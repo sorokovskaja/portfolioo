@@ -1,35 +1,33 @@
 import React, { Component, View } from 'react';
-import Jumbotron from 'react-bootstrap/Jumbotron'
 import Button from 'react-bootstrap/Button'
 //import{Navbar,  Brand, Link, Item, } from 'react-bootstrap/Navbar'
 import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
-import HeaderComponent from './HeaderComponent'
-
-export default class Journey extends Component {
-    render() {
-
-        return (
-            //<HeaderComponent  />
-            //<div className="Journey">
-                <HeaderComponent />
-            //     <Form>
-            //         <Form.Group controlId="exampleForm.SelectCustomHtmlSize">
-            //             <Form.Label>Select with three visible options</Form.Label>
-            //             <Form.Control as="select" htmlSize={3} custom>
-            //                 <option>1</option>
-            //                 <option>2</option>
-            //                 <option>3</option>
-            //                 <option>4</option>
-            //                 <option>5</option>
-            //             </Form.Control>
-            //         </Form.Group>
-            //     </Form>
-            // </div>
-            // <View>
-            //  <HeaderComponent  /> 
-            //         Hell
-            // </View>
-        )
-    }
+function Journey() {
+    return (
+        <div>
+            <h2>Contact</h2>
+            <Container >
+                <Row xs={2} md={5} lg={5}>
+                    <Col>
+                        <Form>
+                            <Form.Group controlId="formGroupEmail">
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control type="email" placeholder="Enter email" />
+                            </Form.Group>
+                            <Form.Group controlId="formGroupPassword">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control type="password" placeholder="Password" />
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+    );
 }
+
+export default Journey;
