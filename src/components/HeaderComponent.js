@@ -16,7 +16,7 @@ function HeaderComponent() {
 
     return (
         <Router>
-            <Navbar bg="#999" variant="dark" >
+            <Navbar bg="light" variant="light" >
                 <Navbar.Brand as={Link} to='/'>AS</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link as={NavLink} to='/welcome'>Home</Nav.Link>

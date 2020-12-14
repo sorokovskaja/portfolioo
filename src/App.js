@@ -1,3 +1,4 @@
+
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from "react";
@@ -9,19 +10,19 @@ import {  lightTheme,darkTheme } from "./Themes"
 
 
 function App() {
-  const [theme,setTheme] = useState('dark');
-  const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light')
-}
+//   const [theme,setTheme] = useState('dark');
+//   const themeToggler = () => {
+//     theme === 'light' ? setTheme('dark') : setTheme('light')
+// }
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    // <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
-        <GlobalStyles />
+        {/* <GlobalStyles /> */}
         <div className="App">
           <Header />
         </div>
       </>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 };
 
