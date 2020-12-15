@@ -6,8 +6,7 @@ import App from './App.js';
 import { BrowserRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import Journey from './components/Journey'
-import reportWebVitals from './reportWebVitals';
+import Wel from 'react-welcome-page'
 const element = <FontAwesomeIcon icon={faCoffee} />
 
 ReactDOM.render(

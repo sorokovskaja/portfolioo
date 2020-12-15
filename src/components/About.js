@@ -7,7 +7,7 @@ function About() {
         <div >
             <h2>About </h2>
             <br></br>
-            <Table striped bordered hover variant="light">
+            <Table >
                 <thead>
                     <tr>
                         <th>#</th>

@@ -6,8 +6,6 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import { Chart } from 'react-charts'
 
-
-
 export default class Journey extends React.Component {
 
     constructor(props) {
@@ -23,7 +21,7 @@ export default class Journey extends React.Component {
     }
     componentDidMount() {
         this.fetch();
-        //this.hifetch();
+        this.hifetch();
     }
     fetch() {
         var context = this;
@@ -44,38 +42,36 @@ export default class Journey extends React.Component {
             });
         }, 1000);
     }
-    // hifetch() {
-    //     debugger
-    //     var context = this;
-    //     window.setTimeout(function () {
-    //         $.ajax({
-    //             url: "https://api.coindesk.com/v1/bpi/historical/close.json",
-    //             dataType: "json",
-    //             method: "GET",
-    //             success: function (response) {
-    //                 let bpi = response.bpi
-    //                 let tmp = []
-    //                 Object.keys(bpi).map((e, i) => {
-    //                     tmp.push(bpi)
-    //                   })
-    //                 context.setState({
-    //                     history: bpi
-    //                 })
-    //             }
+    hifetch() {
+        debugger
+        var context = this;
+        window.setTimeout(function () {
+            $.ajax({
+                url: "https://api.coindesk.com/v1/bpi/historical/close.json",
+                dataType: "json",
+                method: "GET",
+                success: function (response) {
+                    let bpi = response.bpi
+                    let tmp = []
+                    tmp.push(bpi)
+                    context.setState({
+                        history: tmp
+                    })
+                }
                 
-    //         })
-    //             // .then((data) => {
-    //             //     let tmpArray = []
-    //             //     for (var i = 0; i < data.results.length; i++) {
-    //             //         tmpArray.push(data.results[i].NeededInfo)
-    //             //     }
-    //             //     context.setState({
-    //             //         history: tmpArray
-    //             //     })
-    //             // })
+            })
+                // .then((data) => {
+                //     let tmpArray = []
+                //     for (var i = 0; i < data.results.length; i++) {
+                //         tmpArray.push(data.results[i].NeededInfo)
+                //     }
+                //     context.setState({
+                //         history: tmpArray
+                //     })
+                // })
 
-    //     }, 1000);
-    // }
+        }, 1000);
+    }
     render() {
         return (
             <div>
@@ -83,7 +79,8 @@ export default class Journey extends React.Component {
                 <Container>
                     <Row>
                         <Col>
-                            <Card style={{ width: '18rem' }}>
+                        {/* className="bg-dark text-white" */}
+                            <Card style={{ width: '18rem'}}  >
                                 <Card.Header as="h2">Bitcon Price</Card.Header>
                                 <Card.Body>
                                     <Card.Title>BTC Price: ${this.state.usdprice}</Card.Title>
@@ -103,7 +100,7 @@ export default class Journey extends React.Component {
                                 </Card.Body>
                             </Card>
                             <br></br>
-                            <Card style={{ width: '18rem' }}>
+                            <Card style={{ width: '18rem' }} >
                                 <Card.Header as="h2">Bitcon Price</Card.Header>
                                 <Card.Body>
                                     <Card.Title>BTC Price: €{this.state.eurPrice}</Card.Title>
@@ -114,24 +111,22 @@ export default class Journey extends React.Component {
                             </Card>
                         </Col>
                         <Col>
-                            <Card>
+                            <Card >
                                 <Card.Body>
                                     <Card.Header as="h2">Bitcon Data</Card.Header>
                                     <Card.Text action variant="dark"> previous 31 days</Card.Text>
                                     <MyChart />
                                 </Card.Body>
                             </Card>
-                            <Card>
+                            <Card >
                                 <Card.Body>
                                     <Card.Header as="h2">Bitcon Data</Card.Header>
                                     <Card.Text action variant="dark" >
-                                        {/* <div>
-                                            {
-                                                  Object.keys(history).map((e, i) => {
-                                                    <Card key={i} {...e} />
-                                                  })
-                                            }
-                                        </div> */}
+                                    {/* {
+                                        this.state.history.map(function(val){
+                                            return <td>{val}</td>;
+                                          })
+                                    } */}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
