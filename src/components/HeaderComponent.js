@@ -1,42 +1,45 @@
-import React, { Component } from 'react';
-//import{Navbar,  Brand, Link, Item, } from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar'
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route, NavLink, Link
 } from "react-router-dom";
-import { Nav, Form, NavItem, FormControl } from 'react-bootstrap'
-import Welcome from './Welcome';
 import About from './About'
 import Journey from './Journey'
+import Start from './Start'
+import { Nav, Form, FormControl, Container } from 'react-bootstrap'
 
-export default class HeaderComponent extends Component {
-    render() {
-        return (
-            <div>
-                <Navbar bg="dark" variant="dark" >
-                    <Navbar.Brand href="#welcome" to="/">AS</Navbar.Brand>
-                    <Nav className="navbar-nav mr-auto">
-                        {/* <NavItem eventkey={1} href="/"> */}
-                        <Nav.Link href="#welcome" to="/"> Home</Nav.Link>
-                        <Nav.Link href="#about" to="/about"> About</Nav.Link>
-                        <Nav.Link href="#journey" to="/journey"> Journey</Nav.Link>
-                        {/* </NavItem> */}
+
+function HeaderComponent() {
+    var FontAwesome = require('react-fontawesome');
+
+    return (
+        <div>
+            <Router>
+                <Navbar bg="light" variant="light" >
+                    <Navbar.Brand as={Link} to='/'>PORTFOLIO</Navbar.Brand>
+                    <Nav className="mr-auto">
+                        <Nav.Link as={Link} to='/welcome'>Home</Nav.Link>
+                        <Nav.Link as={Link} to='/about' >About</Nav.Link>
+                        <Nav.Link as={Link} to="/journey">Journey</Nav.Link>
                     </Nav>
-                    <Switch>
-                        <Route exact path='/' component={Welcome} />
-                        <Route path='/about' component={About} />
-                        <Route path='/journey' component={Journey} />
-                    </Switch>
                     <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-info">Search</Button>
+                        <FontAwesome className='super-crazy-colors' name='search' type="button" />
+                        {/* <Button variant="outline-info">Search</Button> */}
                     </Form>
-
                 </Navbar>
-            </div>
-        )
-    }
+                <Switch>
+                    <Route exact path="/"><Start /></Route>
+                    <Route path="/welcome"><Start /></Route>
+                    <Route path="/about"><About /></Route>
+                    <Route path="/journey"><Journey /></Route>
+                </Switch>
+            </Router>
+            
+        </div>
+    );
 }
+
+export default HeaderComponent;
